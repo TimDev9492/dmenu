@@ -31,7 +31,7 @@
 #define OPAQUE                0xffU
 
 /* enums */
-enum { SchemeNorm, SchemeSel, SchemeOut, SchemeNormHighlight, SchemeSelHighlight, SchemeOutHighlight, SchemeLast, SchemeHp }; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeOut, SchemeNormHighlight, SchemeSelHighlight, SchemeOutHighlight, SchemeHp, SchemeLast}; /* color schemes */
 
 struct item {
 	char *text;
@@ -51,7 +51,7 @@ static size_t cursor;
 static struct item *items = NULL;
 static struct item *matches, *matchend;
 static struct item *prev, *curr, *next, *sel;
-static int mon = -1, screen;
+static int mon = -1, screen; /* -1, screen; */
 
 static Atom clip, utf8;
 static Display *dpy;
@@ -922,8 +922,6 @@ main(int argc, char *argv[])
  			mon = atoi(argv[++i]);
  		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
  			prompt = argv[++i];
-		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
-			prompt = argv[++i];
 		else if (!strcmp(argv[i], "-fn"))  /* font or font set */
 			fonts[0] = argv[++i];
 		else if (!strcmp(argv[i], "-nb"))  /* normal background color */
